@@ -1,5 +1,14 @@
 header {
   position: fixed;
+  background-color: white;
+  height: 72px;
+  // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   left: 0;
   right: 0;
+}
+
+header.scroll{
+  background-color: white;
+  height: 72px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
