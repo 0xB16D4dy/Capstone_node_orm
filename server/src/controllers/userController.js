@@ -130,7 +130,7 @@ const uploadAvatar = async (req, res) => {
     await fs.readFile(
       process.cwd() + '/public/img/' + req.file.filename,
       async (err, data) => {
-        let dataBase = `data:${req.file.mimetype};base64${Buffer.from(
+        let dataBase = `data:${req.file.mimetype};base64, ${Buffer.from(
           data
         ).toString('base64')}`; //lưu xuống database
         //Xử lý xoá file
@@ -153,7 +153,8 @@ const uploadAvatar = async (req, res) => {
                 avatar: dataBase,
               },
             });
-            successCode(res, '', 'Upload avatar succeed !!!');
+            // console.log(dataBase);
+            successCode(res, '', 'Upload success');
           } else {
             failCode(res, '', 'Upload Failed !!!');
           }
