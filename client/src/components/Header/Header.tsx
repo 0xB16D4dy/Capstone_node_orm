@@ -17,7 +17,8 @@ import {
   SearchOutlined,
   SmileOutlined,
 } from '@ant-design/icons';
-import { Input } from 'antd';
+import { Dropdown, Input, MenuProps } from 'antd';
+import Login from '../Login/Login';
 
 const { Search } = Input;
 
@@ -27,6 +28,9 @@ export default function Header({}: Props) {
   const onSearch = (value: string) => console.log(value);
   const [scrollTop, setScrollTop] = useState(0);
   const [scrolling, setScrolling] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
+
   useEffect(() => {
     const onScroll = (e: any) => {
       setScrollTop(e.target.documentElement.scrollTop);
@@ -36,6 +40,60 @@ export default function Header({}: Props) {
 
     return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
+
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: <div>Add account</div>,
+    },
+    {
+      key: '2',
+      label: <div>Log Out</div>,
+    },
+  ];
+
+  const handleSetLogin = () => {
+    setOpenLogin(true);
+  };
+
+  const renderAuthentication = () => {
+    return (
+      <>
+        <IconButton id='btn_login' onClick={handleSetLogin}>
+          Log in
+        </IconButton>
+        <IconButton id='btn_signup'>Sign up</IconButton>
+        <Login handleOpenLogin={setOpenLogin} onOpenLogin={openLogin} />
+      </>
+    );
+  };
+
+  const renderDropDown = () => {
+    return (
+      <>
+        <IconButton>
+          <BellOutlined />
+        </IconButton>
+        <IconButton>
+          <MessageOutlined />
+        </IconButton>
+        <IconButton>
+          <SmileOutlined />
+        </IconButton>
+        <Dropdown
+          menu={{ items }}
+          trigger={['click']}
+          placement={'bottomRight'}
+          overlayStyle={{ position: 'fixed' }}
+        >
+          <IconButton>
+            <DownOutlined />
+          </IconButton>
+        </Dropdown>
+      </>
+    );
+  };
+
   return (
     <header className={scrolling ? 'scroll' : ''}>
       <Wrapper>
@@ -65,18 +123,7 @@ export default function Header({}: Props) {
           </SearchBarWrapper>
         </SearchWrapper>
         <IconsWrapper>
-          <IconButton>
-            <BellOutlined />
-          </IconButton>
-          <IconButton>
-            <MessageOutlined />
-          </IconButton>
-          <IconButton>
-            <SmileOutlined />
-          </IconButton>
-          <IconButton>
-            <DownOutlined />
-          </IconButton>
+          {isAuth ? renderDropDown() : renderAuthentication()}
         </IconsWrapper>
       </Wrapper>
     </header>

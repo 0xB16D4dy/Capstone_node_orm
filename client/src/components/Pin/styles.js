@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   padding: 8px;
-  width: calc(100% / 5);
 `;
 
 const Container = styled.div`

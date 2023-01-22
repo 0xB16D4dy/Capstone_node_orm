@@ -5,7 +5,7 @@ const { successCode, errorCode, failCode } = require('../configs/response');
 const getImage = async (req, res) => {
   try {
     const result = await prisma.image.findMany({});
-    if (!result.length) {
+    if (result.length > 0) {
       successCode(res, result, 'Lấy ảnh thành công !!!');
     } else {
       failCode(res, result, 'Không có bất kỳ ảnh nào được tìm thấy !!!');

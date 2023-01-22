@@ -10,19 +10,23 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import HomeTemplate from './templates/HomeTemplate';
 import './assets/scss/styles.scss';
+import { Provider } from 'react-redux';
+import { store } from './redux/configStore';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <Router>
-    <Routes>
-      <Route path='' element={<HomeTemplate />}>
-        <Route index element={<Home />}></Route>
-        <Route path='home' element={<Home />} />
-        <Route path='login' element={<Login />} />
-      </Route>
-      <Route path='*' element={<Navigate to='' />}></Route>
-    </Routes>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Routes>
+        <Route path='' element={<HomeTemplate />}>
+          <Route index element={<Home />}></Route>
+          <Route path='home' element={<Home />} />
+          <Route path='login' element={<Login />} />
+        </Route>
+        <Route path='*' element={<Navigate to='' />}></Route>
+      </Routes>
+    </Router>
+  </Provider>
 );

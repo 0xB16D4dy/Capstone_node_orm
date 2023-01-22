@@ -1,13 +1,16 @@
 import React from 'react';
 import { Container, Wrapper } from './styles';
 
-type Props = {};
+type Props = {
+  src?: string;
+};
 
-export default function Pin({}: Props) {
+export default function Pin({ src }: Props) {
+  console.log(src);
   return (
     <Wrapper>
       <Container>
-        <img src='./img/test.jpeg' alt='test' />
+        <img src={src} alt='test' />
       </Container>
     </Wrapper>
   );

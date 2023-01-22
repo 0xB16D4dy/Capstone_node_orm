@@ -7,8 +7,60 @@ header {
   right: 0;
 }
 
-header.scroll{
+header.scroll {
   background-color: white;
   height: 72px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#btn_login {
+  min-width: 60px;
+  width: 100%;
+  background-color: #e60023;
+  min-height: 40px;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  transition: transform 85ms ease-out;
+  -webkit-transition: transform 85ms ease-out;
+  -moz-transition: transform 85ms ease-out;
+  -ms-transition: transform 85ms ease-out;
+  -o-transition: transform 85ms ease-out;
+  border-radius: 24px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+  &:hover {
+    background-color: #ad081b;
+  }
+}
+
+#btn_signup {
+  text-align: center;
+  white-space: nowrap;
+  min-width: 60px;
+  min-height: 40px;
+  width: 100%;
+  background-color: #efefef;
+  padding: 8px 32px;
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  border-radius: 24px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+  transition: transform 85ms ease-out;
+  -webkit-transition: transform 85ms ease-out;
+  -moz-transition: transform 85ms ease-out;
+  -ms-transition: transform 85ms ease-out;
+  -o-transition: transform 85ms ease-out;
+  &:hover {
+    background-color: #e2e2e2;
+  }
 }
